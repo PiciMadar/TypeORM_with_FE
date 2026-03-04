@@ -15,7 +15,7 @@ export class User {
   @Column({ length: 100, unique: true })
   email!: string;
 
-  @Column({ length: 40 })
+  @Column({ length: 70 })
   password!: string;
 
   @OneToMany(() => Task, task => task.user)
