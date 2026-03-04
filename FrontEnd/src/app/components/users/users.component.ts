@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit{
 
   constructor(private apiService: ApiService) { }
 
-    displayedColumns: string[] = ['name', 'email','actions'];
+    displayedColumns: string[] = ['nr','name', 'email','actions'];
     dataSource = new MatTableDataSource<User>([]);
   ngOnInit() {
     this.apiService.selectAll('users').subscribe(data => {

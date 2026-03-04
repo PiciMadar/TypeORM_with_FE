@@ -2,6 +2,11 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 <h1>Manage Users</h1>
 
+  <!-- Position Column -->
+  <ng-container matColumnDef="nr">
+    <th mat-header-cell *matHeaderCellDef> Nr. </th>
+    <td mat-cell *matCellDef="let element"> {{element.nr}} </td>
+  </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
