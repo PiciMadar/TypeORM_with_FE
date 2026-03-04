@@ -1,0 +1,9 @@
+### createTask
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "title": "New Task",
+    "description": "Task description",
+    "userId": "76717f15-a8fe-467f-821e-44ea3d8b2666"
+}
