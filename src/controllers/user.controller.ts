@@ -15,7 +15,7 @@ export class UserController{
         res.status(201).json(user);
     }
 
-    listUsers = async (req: Request, res: Response) => {
+    listUsers = async (_req: Request, res: Response) => {
         const users = await this.userService.listUsers();
         res.status(200).json(users);
     }
@@ -47,8 +47,14 @@ export class UserController{
         res.status(204).send();
     }
 
-    listUsersWithTasks = async (req: Request, res: Response) => {
-        const users = await this.userService.listUsersWithTasks();
-        res.status(200).json(users);
+    listUserWithTasks = async (req: Request, res: Response) => {
+        const id = req.params.id as string;
+        const user = await this.userService.getUserById(id);
+        if (user) {
+            const tasks = await this.userService.listUserWithTasks(id);
+            res.status(200).json({ user, tasks });
+        } else {
+            res.status(404).json({ message: "User not found" });
+        }
     }
 }

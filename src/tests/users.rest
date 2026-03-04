@@ -3,7 +3,29 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "password": "securepassword"
+    "name": "John Dili",
+    "email": "john@dilis.com",
+    "password": "securepassword2"
 }
+
+### GET ALL USERS
+GET http://localhost:3000/api/users
+
+### GET USER BY ID
+GET http://localhost:3000/api/users/68eca1b1-218d-467b-b50e-86a949f7d797
+
+### UPDATE USER
+PATCH  http://localhost:3000/api/users/68eca1b1-218d-467b-b50e-86a949f7d797
+Content-Type: application/json
+
+{
+    "name": "John Dili Updated",
+    "email": "john@dilis.com",
+}
+
+### Delete user
+
+DELETE http://localhost:3000/api/users/68eca1b1-218d-467b-b50e-86a949f7d797
+
+### GET USER WITH TASKS
+GET http://localhost:3000/api/users/with-tasks/68eca1b1-218d-467b-b50e-86a949f7d797

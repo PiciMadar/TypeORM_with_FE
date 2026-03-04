@@ -28,9 +28,10 @@ export class UserService {
     await this.userRepository.delete(id);
   }
 
-  async listUsersWithTasks() {
+  async listUserWithTasks(id: string) {
     return this.userRepository.createQueryBuilder("user")
       .leftJoinAndSelect("user.tasks", "task")
-      .getMany();
+      .where("user.id = :id", { id })
+      .getOne();
   }
 }

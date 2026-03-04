@@ -9,6 +9,6 @@ router.get("/", userController.listUsers);
 router.get("/:id", userController.getUserById);
 router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
-router.get("/with-tasks", userController.listUsersWithTasks);
+router.get("/with-tasks/:id", userController.listUserWithTasks);
 
 export default router;
