@@ -1,16 +1,21 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity('tasks')
 export class Task {
-  @PrimaryGeneratedColumn()
-  id!: number;
+  @PrimaryGeneratedColumn("uuid")
+  id!: string;
 
-  @Column()
+  @Column({ length: 100 })
   title!: string;
 
-  @Column()
+  @Column({ length: 500 })
   description!: string;
 
   @Column({ default: false })
   completed!: boolean;
+
+  @ManyToOne(() => User, user => user.tasks)
+  @JoinColumn({ name: 'userId' })
+  user!: User;
 }
